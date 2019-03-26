@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-
+import SearchBar from './components/SearchBar';
 class App extends Component {
   render() {
-    return <div className='App'>App</div>;
+    return (
+      <div className='App'>
+        <SearchBar />
+      </div>
+    );
   }
 }
 
