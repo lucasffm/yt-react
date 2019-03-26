@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SearchBar from './components/SearchBar';
+import VideoList from './components/VideoList';
 import youtube from './apis/youtube';
 
 class App extends Component {
@@ -22,7 +23,9 @@ class App extends Component {
     return (
       <div className='ui container'>
         <SearchBar searchVideo={this.searchVideo} />
-        <p>I Have {this.state.videos.length} videos</p>
+        {this.state.videos.length > 0 && (
+          <VideoList videos={this.state.videos} />
+        )}
       </div>
     );
   }
