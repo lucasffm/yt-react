@@ -16,6 +16,14 @@ export default class SearchBar extends Component {
       <div className='search-bar ui segment'>
         <form className='ui form' onSubmit={e => this.onFormSubmit(e)}>
           <div className='field'>
+            <img
+              src='https://i.pinimg.com/originals/ed/45/b9/ed45b98be983560d0a5f3dac59a38436.png'
+              alt=''
+              style={{
+                width: '50px',
+                height: '50px'
+              }}
+            />
             <label>Pesquisar Video</label>
             <input
               type='text'

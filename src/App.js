@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import SearchBar from './components/SearchBar';
 import VideoList from './components/VideoList';
+import VideoDetail from './components/VideoDetail';
 import youtube from './apis/youtube';
 
 class App extends Component {
   state = {
-    videos: []
+    videos: [],
+    selectedVideo: null
   };
 
   searchVideo = async term => {
@@ -19,12 +21,24 @@ class App extends Component {
     });
   };
 
+  onVideoSelect = video => {
+    this.setState({
+      selectedVideo: video
+    });
+  };
+
   render() {
     return (
       <div className='ui container'>
         <SearchBar searchVideo={this.searchVideo} />
+        {this.state.selectedVideo && (
+          <VideoDetail video={this.state.selectedVideo} />
+        )}
         {this.state.videos.length > 0 && (
-          <VideoList videos={this.state.videos} />
+          <VideoList
+            videos={this.state.videos}
+            onVideoSelect={this.onVideoSelect}
+          />
         )}
       </div>
     );
