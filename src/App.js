@@ -31,15 +31,23 @@ class App extends Component {
     return (
       <div className='ui container'>
         <SearchBar searchVideo={this.searchVideo} />
-        {this.state.selectedVideo && (
-          <VideoDetail video={this.state.selectedVideo} />
-        )}
-        {this.state.videos.length > 0 && (
-          <VideoList
-            videos={this.state.videos}
-            onVideoSelect={this.onVideoSelect}
-          />
-        )}
+        <div className='ui grid'>
+          <div className='ui row'>
+            <div className='eleven wide column'>
+              {this.state.selectedVideo && (
+                <VideoDetail video={this.state.selectedVideo} />
+              )}
+            </div>
+            <div className='five wide column'>
+              {this.state.videos.length > 0 && (
+                <VideoList
+                  videos={this.state.videos}
+                  onVideoSelect={this.onVideoSelect}
+                />
+              )}
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
